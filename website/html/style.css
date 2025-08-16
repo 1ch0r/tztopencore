@@ -1,0 +1,72 @@
+:root {
+  --dark-bg-1: #0b0b0b;       /* deep charcoal */
+  --dark-bg-2: #1a1a1a;       /* slightly lighter for gradient/shimmer */
+  --accent-purple: #a259ff;   /* vibrant purple */
+  --accent-green: #5cffb0;    /* fresh green */
+  --accent-green-strong: #90ffcd;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, sans-serif;
+  background: linear-gradient(50deg, var(--dark-bg-1), var(--dark-bg-2));
+  color: var(--accent-green);
+  animation: background-shift 60s ease-in-out infinite;
+}
+
+/* Header and nav */
+header {
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid rgba(162, 89, 255, 0.3);
+  background: rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(4px);
+}
+.site-title {
+  color: var(--accent-purple);
+  text-decoration: none;
+  text-shadow: 0 0 6px rgba(162, 89, 255, 0.9);
+}
+.site-title:hover {
+  color: var(--accent-green);
+}
+nav a {
+  color: var(--accent-green);
+}
+nav a:hover {
+  color: var(--accent-green-strong);
+}
+
+/* Menu toggle bars */
+.menu-toggle span {
+  background: var(--accent-purple);
+}
+
+/* Team cards */
+.member {
+  background: rgba(255, 255, 255, 0.03);
+  box-shadow: 0 0 12px rgba(162, 89, 255, 0.3);
+}
+.member img {
+  border: 3px solid var(--accent-purple);
+}
+.member h4 a {
+  color: var(--accent-green);
+}
+.member h4 a:hover {
+  color: var(--accent-green-strong);
+}
+
+/* Footer */
+footer {
+  background: var(--dark-bg-2);
+}
+
+/* Gradient shimmer animation */
+@keyframes background-shift {
+  0%   { background: linear-gradient(50deg, var(--dark-bg-1), var(--dark-bg-2)); }
+  50%  { background: linear-gradient(50deg, var(--dark-bg-2), var(--dark-bg-1)); }
+  100% { background: linear-gradient(50deg, var(--dark-bg-1), var(--dark-bg-2)); }
+}

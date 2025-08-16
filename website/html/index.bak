@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Teznet Technology | Invention - Innovation - Inspiration</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    :root {
+      --dark-bg-1: #0b0b0b;
+      --dark-bg-2: #1a1a1a;
+      --accent-purple: #a259ff;
+      --accent-green: #5cffb0;
+      --accent-green-strong: #90ffcd;
+    }
+    body {
+      margin: 0;
+      font-family: system-ui, sans-serif;
+      background: linear-gradient(50deg, var(--dark-bg-1), var(--dark-bg-2));
+      color: var(--accent-green);
+      animation: background-shift 60s ease-in-out infinite;
+    }
+    header {
+      font-family: system-ui, sans-serif;	    
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: relative;
+      border-bottom: 2px solid rgba(162, 89, 255, 0.3);
+      background: var(--dark-bg-2);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.6);
+    }
+    header h1 {
+      font-family: system-ui, sans-serif;
+      font-size: 1.5rem;
+      margin: 0;
+    }
+    .site-title {
+      color: var(--accent-purple);
+      text-decoration: none;
+      text-shadow: 0 0 6px rgba(162, 89, 255, 0.9);
+    }
+    .site-title:hover {
+      color: var(--accent-green);
+    }
+    nav a {
+      color: var(--accent-green);
+      text-decoration: none;
+      font-weight: bold;
+      padding: 0.25rem 0.5rem;
+    }
+    nav a:hover {
+      color: var(--accent-green-strong);
+    }
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      gap: 4px;
+      z-index: 1100;
+    }
+    .menu-toggle span {
+      width: 25px;
+      height: 3px;
+      background: var(--accent-purple);
+      border-radius: 2px;
+      transition: background 0.3s ease;
+    }
+    .nav-links {
+      display: flex;
+      gap: 0.75rem;
+    }
+    @media (max-width: 700px) {
+      .menu-toggle { display: flex; }
+      .nav-links {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100vh;
+        width: 100vw;
+        background: var(--dark-bg-1);
+        opacity: 0;
+        pointer-events: none;
+        transform: scale(1.05);
+        transition: opacity 0.4s ease, transform 0.4s ease;
+        gap: 1.5rem;
+        font-size: 1.4rem;
+        z-index: 1000;
+      }
+      .nav-links.show {
+        opacity: 1;
+        pointer-events: auto;
+        transform: scale(1);
+      }
+    }
+    .hero {
+      text-align: center;
+      padding: 4rem 2rem;
+    }
+    .hero h2 {
+      font-size: 2.5rem;
+      text-shadow: 0 0 6px rgba(162, 89, 255, 0.9),
+                   0 0 18px rgba(92, 255, 176, 0.6);
+      margin-bottom: 1rem;
+      color: var(--accent-purple);
+    }
+    .hero p {
+      font-size: clamp(1rem, 1.2vw + 0.5rem, 1.5rem);
+      line-height: 1.6;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    .buttons {
+      margin-top: 2rem;
+    }
+    .btn {
+      background: transparent;
+      border: 2px solid var(--accent-green);
+      color: var(--accent-green);
+      padding: 0.75rem 1.5rem;
+      margin: 0.5rem;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+      text-shadow: 0 0 6px rgba(92, 255, 176, 0.8);
+    }
+    a.btn {
+      text-decoration: none;
+      display: inline-block;
+    }
+    .btn:hover {
+      background: var(--accent-green);
+      color: var(--dark-bg-1);
+      transform: scale(1.05);
+    }
+    section {
+      padding: 3rem 2rem;
+      max-width: 1000px;
+      margin: auto;
+    }
+    section h3 {
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      text-shadow: 0 0 6px rgba(162, 89, 255, 0.8);
+      color: var(--accent-purple);
+    }
+    section p {
+      text-align: center;
+      line-height: 1.6;
+      font-size: clamp(1rem, 1.2vw + 0.5rem, 1.5rem);
+    }
+    footer {
+      background: var(--dark-bg-2);
+      text-align: center;
+      padding: 1rem;
+      margin-top: 3rem;
+      font-size: 0.9rem;
+    }
+    @keyframes background-shift {
+      0%   { background: linear-gradient(50deg, var(--dark-bg-1), var(--dark-bg-2)); }
+      50%  { background: linear-gradient(50deg, var(--dark-bg-2), var(--dark-bg-1)); }
+      100% { background: linear-gradient(50deg, var(--dark-bg-1), var(--dark-bg-2)); }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1><a href="index.html" class="site-title">Teznet Technology</a></h1>
+    <div class="menu-toggle" id="menu-toggle">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <nav class="nav-links" id="nav-links">
+      <a href="https://github.com/TeznetOpenCore/">OpenCore</a>
+      <a href="investments.html">Strategic Investments</a>
+      <a href="team.html">Meet the Team</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h2>Explore, Learn, Develop</h2>
+    <p>All our code is free!</p>
+    <div class="buttons">
+	    <button class="btn"><a href= "https://solscan.io/token/4VrrtxGWsoXwhfqi9ffXUyQS6FjhHmMuKgBjFx5KVpQh">R0B0S0AREXX on SOLANA</a></button>
+      <button class="btn"><a href="https://a.co/d/2ls4jOg">OFFICIAL $REXXY PILLOW</a></button>
+    </div>
+  </section>
+
+  <section id="solutions">
+    <h3>Invention</h3>
+    <p>Founded in 2020, Teznet provides proactive solutions for modern day security. <strong>Our unique perspective</strong>  <strong>and broad range of expertise</strong> has lead us to turning critical vulnerbilities in systems to oppurtunties for improvement. <strong>With hands on experience in embedded systems, x86 architecture, and now blockchain technology.</strong> Teznet seeks to shine light on the unique world of modern digital signal-processing. <strong>Encouraging Open Source Development and Design.</strong>  We pride ourselves in defying the odds and pushing the boundaries of technology.</p>
+  </section>
+
+  <section id="innovation">
+    <h3> Innovation</h3>
+    <p>Sometimes you dont have to do something different. Sometimes you have to do something better. Even if its just a mere millisecond. A leaner,more dynamic design, or something else. Either way, little victories add up, even if they dont show at first.</p>
+  </section>
+
+  <section id="contact">
+    <h3>Inspiration</h3>
+    <p>95% of gamblers quit right before they lose...anyways heres our OpenCore Link:<a href="https://Github.com/TeznetOpenCore" style="color: var(--accent-green);">Github.com/TeznetOpenCore</a> <p>
+  </section>
+
+  <footer>
+    &copy; 2025 Teznet LLC. All Rights Reserved.
+  </footer>
+
+  <script>
+    const toggle = document.getElementById('menu-toggle');
+    const nav = document.getElementById('nav-links');
+    toggle.addEventListener('click', () => {
+      nav.classList.toggle('show');
+    });
+  </script>
+
+</body>
+</html>

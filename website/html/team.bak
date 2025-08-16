@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Teznet | Meet the Team</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    :root {
+      --dark-bg-1: #0b0b0b;
+      --dark-bg-2: #1a1a1a;
+      --accent-purple: #a259ff;
+      --accent-green: #5cffb0;
+      --accent-green-strong: #90ffcd;
+    }
+    body {
+      margin: 0;
+      font-family: system-ui, sans-serif;
+      background: linear-gradient(50deg, var(--dark-bg-1), var(--dark-bg-2));
+      color: var(--accent-green);
+      animation: background-shift 60s ease-in-out infinite;
+    }
+    header {
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: relative;
+      border-bottom: 2px solid rgba(162, 89, 255, 0.3);
+      background: var(--dark-bg-2);
+    }
+    header h1 {
+      font-size: 1.5rem;
+      margin: 0;
+    }
+    .site-title {
+      color: var(--accent-purple);
+      text-decoration: none;
+      text-shadow: 0 0 6px rgba(162, 89, 255, 0.9);
+    }
+    .site-title:hover {
+      color: var(--accent-green);
+    }
+    nav a {
+      color: var(--accent-green);
+      text-decoration: none;
+      font-weight: bold;
+      padding: 0.25rem 0.5rem;
+    }
+    nav a:hover {
+      color: var(--accent-green-strong);
+    }
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      gap: 4px;
+      z-index: 1100;
+    }
+    .menu-toggle span {
+      width: 25px;
+      height: 3px;
+      background: var(--accent-purple);
+      border-radius: 2px;
+    }
+    .nav-links {
+      display: flex;
+      gap: 0.75rem;
+    }
+    @media (max-width: 700px) {
+      .menu-toggle { display: flex; }
+      .nav-links {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100vh;
+        width: 100vw;
+        background: var(--dark-bg-1);
+        opacity: 0;
+        pointer-events: none;
+        transform: scale(1.05);
+        transition: opacity 0.4s ease, transform 0.4s ease;
+        gap: 1.5rem;
+        font-size: 1.4rem;
+        z-index: 1000;
+      }
+      .nav-links.show {
+        opacity: 1;
+        pointer-events: auto;
+        transform: scale(1);
+      }
+    }
+    .team-section {
+      padding: 3rem 2rem;
+      max-width: 1000px;
+      margin: auto;
+      text-align: center;
+    }
+    .team-section h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      text-shadow: 0 0 6px rgba(162, 89, 255, 0.8);
+      color: var(--accent-purple);
+    }
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    .team-member {
+      background: rgba(255, 255, 255, 0.05);
+      padding: 1rem;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(162, 89, 255, 0.2);
+    }
+    .team-member img {
+      width: 100%;
+      border-radius: 50%;
+      margin-bottom: 1rem;
+    }
+    .team-member h3 {
+      margin: 0.5rem 0;
+      color: var(--accent-green);
+    }
+    .team-member p {
+      font-size: 0.95rem;
+      line-height: 1.4;
+    }
+    footer {
+      background: var(--dark-bg-2);
+      text-align: center;
+      padding: 1rem;
+      margin-top: 3rem;
+      font-size: 0.9rem;
+    }
+    @keyframes background-shift {
+      0%   { background: linear-gradient(50deg, var(--dark-bg-1), var(--dark-bg-2)); }
+      50%  { background: linear-gradient(50deg, var(--dark-bg-2), var(--dark-bg-1)); }
+      100% { background: linear-gradient(50deg, var(--dark-bg-1), var(--dark-bg-2)); }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1><a href="index.html" class="site-title">Teznet LLC</a></h1>
+    <div class="menu-toggle" id="menu-toggle">
+      <span></span><span></span><span></span>
+    </div>
+    <nav class="nav-links" id="nav-links">
+      <a href="index.html">Home</a>
+      <a href="team.html">Meet the Team</a>
+      <a href="investments.html">Strategic Investments</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <section class="team-section">
+    <h2>Meet the Team</h2>
+    <div class="team-grid">
+      <div class="team-member">
+        <img src="images/founder.jpg" alt="Founder">
+        <h3>Alex Johnson</h3>
+        <p>Founder & CEO — With over 20 years in RF engineering, Alex leads Teznet with a vision for innovation and a commitment to pushing technological boundaries.</p>
+      </div>
+      <div class="team-member">
+        <img src="images/cto.jpg" alt="CTO">
+        <h3>Maria Lopez</h3>
+        <p>Chief Technology Officer — Maria specializes in embedded systems and cybersecurity, ensuring our solutions remain secure, scalable, and ahead of the curve.</p>
+      </div>
+      <div class="team-member">
+        <img src="images/lead-engineer.jpg" alt="Lead Engineer">
+        <h3>David Kim</h3>
+        <p>Lead Engineer — David spearheads our hardware security projects, blending technical mastery with creative problem-solving.</p>
+      </div>
+      <div class="team-member">
+        <img src="images/project-manager.jpg" alt="Project Manager">
+        <h3>Sara Patel</h3>
+        <p>Project Manager — Sara ensures that every project moves from concept to completion with efficiency, clarity, and quality.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    &copy; 2025 Teznet LLC. All Rights Reserved.
+  </footer>
+
+  <script>
+    const toggle = document.getElementById('menu-toggle');
+    const nav = document.getElementById('nav-links');
+    toggle.addEventListener('click', () => {
+      nav.classList.toggle('show');
+    });
+  </script>
+
+</body>
+</html>
