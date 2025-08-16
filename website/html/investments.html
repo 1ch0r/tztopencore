@@ -1,407 +1,296 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1.0">
-  <title>Crypto Dashboard – Teznet Technology Style</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap">
+  <meta charset="UTF-8" />
+  <title>Teznet Technology | Strategic Investments</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <style>
     :root {
-      --color-bg-main: #161A22;
-      --color-bg-surface: #23272F;
-      --color-bg-card: #23272F;
-      --color-border: #293447;
-      --color-accent: #44D7B6;
-      --color-accent-alt: #4E5EC6;
-      --color-accent-gradient: linear-gradient(90deg, #44D7B6 0%, #4E5EC6 100%);
-      --color-text-main: #E1E8EF;
-      --color-text-secondary: #A0AEC0;
-      --color-down: #FF616D;
-      --color-up: #44D7B6;
-      --color-btn-bg: #44D7B6;
-      --color-btn-text: #141921;
-      --radius: 18px;
-      --shadow-card: 0 2px 16px 0 rgba(68,215,182, 0.13);
-      --shadow-card-hover: 0 6px 32px 0 rgba(68,215,182,0.23);
-      --transition: 0.18s cubic-bezier(.45,0,.55,1);
-      --navbar-height: 68px;
-      font-size: 16px;
+      --dark-bg-1: #0b0b0b;
+      --dark-bg-2: #1a1a1a;
+      --accent-purple: #a259ff;
+      --accent-green: #5cffb0;
+      --accent-green-strong: #90ffcd;
+      --transition-fast: 0.3s ease;
     }
-    html, body {
-      margin: 0; padding: 0;
-      background: var(--color-bg-main);
-      color: var(--color-text-main);
-      font-family: 'Inter', Arial, sans-serif;
-      min-height: 100%;
+
+    /* Reset & Base */
+    * {
+      margin: 0;
+      padding: 0;
       box-sizing: border-box;
     }
+
     body {
-      min-height: 100vh;
-      background: var(--color-bg-main);
+      font-family: system-ui, sans-serif;
+      background: linear-gradient(50deg, var(--dark-bg-1), var(--dark-bg-2));
+      color: var(--accent-green);
+      animation: background-shift 60s var(--transition-fast) infinite alternate;
+      line-height: 1.5;
     }
-    /* NAVBAR */
-    .navbar {
-      height: var(--navbar-height);
+
+    @keyframes background-shift {
+      from { background: linear-gradient(50deg, var(--dark-bg-1), var(--dark-bg-2)); }
+      to   { background: linear-gradient(50deg, var(--dark-bg-2), var(--dark-bg-1)); }
+    }
+
+    /* Header & Navigation */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
       width: 100%;
+      background: var(--dark-bg-2);
+      border-bottom: 2px solid rgba(162, 89, 255, 0.3);
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
+      padding: 1rem 2rem;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 0 2.5rem;
-      position: sticky; top: 0; z-index: 20;
-      background: var(--color-bg-surface);
-      border-bottom: 1px solid var(--color-border);
-      box-shadow: 0 1px 9px 0 rgba(68,215,182,0.05);
+      z-index: 1000;
     }
-    .navbar__brand {
-      display: flex;
-      align-items: center;
-      font-weight: 700;
+
+    .site-title {
+      color: var(--accent-purple);
+      text-decoration: none;
       font-size: 1.5rem;
-      letter-spacing: 1.5px;
-      color: var(--color-text-main);
-    }
-    .navbar__brand img {
-      height: 2.2rem; width: 2.2rem; margin-right: 0.8rem; border-radius: 8px;
-      background-color: var(--color-accent);
-    }
-    .navbar__links {
-      display: flex; align-items: center;
-      gap: 2rem;
-    }
-    .navbar__links a {
-      color: var(--color-text-main);
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 1rem;
-      padding: 0.4em 0.7em;
-      border-radius: 8px;
-      transition: background var(--transition), color var(--transition);
-    }
-    .navbar__links a.active,
-    .navbar__links a:focus,
-    .navbar__links a:hover {
-      color: var(--color-accent);
-      background: rgba(68,215,182,0.07);
-      outline: 2px solid var(--color-accent);
-      outline-offset: 2px;
+      text-shadow: 0 0 6px rgba(162, 89, 255, 0.9);
+      transition: color var(--transition-fast);
     }
 
-    /* PAGE CONTAINER */
-    .container {
-      max-width: 1240px;
-      margin: 0 auto;
-      padding: 2.5rem 1rem 3.5rem 1rem;
+    .site-title:hover {
+      color: var(--accent-green);
     }
-    /* SECTION HEADER */
-    .section-header {
-      margin-bottom: 2rem;
+
+    nav {
       display: flex;
-      align-items: flex-end;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 1.2rem;
-    }
-    .section-title {
-      font-size: 2.3rem;
-      font-weight: 700;
-      letter-spacing: 1.1px;
-    }
-    .section-desc {
-      font-size: 1.15rem;
-      font-weight: 400;
-      color: var(--color-text-secondary);
-      max-width: 500px;
-      line-height: 1.65;
+      gap: 1rem;
     }
 
-    /* CRYPTO GRID */
-    .crypto-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(265px, 1fr));
-      gap: 2.4rem;
+    nav a {
+      position: relative;
+      color: var(--accent-green);
+      text-decoration: none;
+      font-weight: bold;
+      padding: 0.25rem 0.5rem;
+      transition: color var(--transition-fast);
+    }
+
+    nav a::after {
+      content: '';
+      position: absolute;
+      bottom: -3px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--accent-purple);
+      transition: width var(--transition-fast);
+    }
+
+    nav a:hover {
+      color: var(--accent-green-strong);
+    }
+
+    nav a:hover::after {
       width: 100%;
     }
 
-    /* CRYPTO CARD */
-    .crypto-card {
-      background: var(--color-bg-card);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow-card);
-      border: 1px solid var(--color-border);
-      padding: 2rem 1.5rem 1.5rem 1.5rem;
-      display: flex;
+    /* Hamburger Button */
+    .menu-toggle {
+      display: none;
       flex-direction: column;
-      align-items: stretch;
-      position: relative;
-      transition: box-shadow var(--transition), border-color var(--transition), transform var(--transition);
-      min-width: 0;
-    }
-    .crypto-card:focus-within,
-    .crypto-card:hover {
-      box-shadow: var(--shadow-card-hover);
-      border-color: var(--color-accent);
-      transform: translateY(-4px) scale(1.03);
-      outline: none;
-    }
-    .crypto-card__header {
-      display: flex; align-items: center; gap: 1.05rem; margin-bottom: 1.2rem;
-    }
-    .crypto-card__logo img {
-      width: 54px; height: 54px;
-      border-radius: 50%; object-fit: cover;
-      background-color: #20252e;
-      border: 2px solid var(--color-border);
-      transition: border-color var(--transition);
-    }
-    .crypto-card__name {
-      font-size: 1.22rem; font-weight: 700; letter-spacing: 1.05px;
-    }
-    .crypto-card__symbol {
-      color: var(--color-text-secondary); font-size: 1rem; font-weight: 500; margin-left: 0.28em;
-      letter-spacing: 0.08em;
-    }
-    .crypto-card__stats {
-      display: grid; grid-template-columns: 1fr 1fr; gap: 0.7em 1.4em; margin-bottom: 1.3rem;
-    }
-    .crypto-card__stat {
-      display: flex; flex-direction: column; gap: 0.1em; min-width: 0;
-    }
-    .crypto-card__stat-label {
-      font-size: 0.92rem; color: var(--color-text-secondary); font-weight: 400; margin-bottom: 0.07em;
-    }
-    .crypto-card__stat-value {
-      font-size: 1.11rem; font-weight: 600; line-height: 1.22;
-    }
-    .crypto-card__change {
-      font-size: 1rem; font-weight: 600; display: flex; align-items: center; gap: 0.33rem;
-    }
-    .crypto-card__change--up {
-      color: var(--color-up);
-    }
-    .crypto-card__change--down {
-      color: var(--color-down);
-    }
-    .crypto-card__actions {
-      margin-top: auto;
-      display: flex;
-      align-items: center;
-      justify-content: flex-end;
-    }
-    /* Button styling */
-    .btn-learn {
-      --btn-bg: var(--color-btn-bg);
-      --btn-text: var(--color-btn-text);
-      display: inline-block;
-      background: var(--color-accent-gradient);
-      color: var(--color-btn-text);
-      font-weight: 600;
-      font-size: 1rem;
-      padding: 0.67em 1.36em;
-      border: none;
-      border-radius: 8px;
+      justify-content: space-between;
+      width: 28px;
+      height: 22px;
       cursor: pointer;
-      transition: box-shadow var(--transition), background var(--transition), color var(--transition);
-      text-align: center;
-      text-decoration: none;
-      outline: none;
-      box-shadow: 0 1.5px 9px 0 rgba(68,215,182,0.07);
-      margin-left: 0;
-      min-width: 120px;
-    }
-    .btn-learn:focus,
-    .btn-learn:hover {
-      background: linear-gradient(90deg,#4E5EC6 0%, #44D7B6 100%);
-      color: #fff;
-      box-shadow: 0 6px 32px 0 rgba(68,215,182,0.25);
-      outline: 2px solid var(--color-accent-alt);
-      outline-offset: 2px;
+      z-index: 1100;
     }
 
-    /* Responsive adjustments */
-    @media (max-width:800px) {
-      .navbar {
-        padding: 0 1rem;
-        font-size: 0.9rem;
+    .menu-toggle span {
+      display: block;
+      height: 3px;
+      background: var(--accent-purple);
+      border-radius: 2px;
+      transition: transform var(--transition-fast), opacity var(--transition-fast);
+    }
+
+    /* Mobile Nav */
+    @media (max-width: 700px) {
+      .menu-toggle {
+        display: flex;
       }
-      .container {
-        padding: 1.5rem 0.5rem 1.5rem 0.5rem;
+      nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: var(--dark-bg-1);
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 1.5rem;
+        font-size: 1.4rem;
+        opacity: 0;
+        pointer-events: none;
+        transform: scale(1.05);
+        transition: opacity var(--transition-fast),
+                    transform var(--transition-fast);
       }
-      .crypto-grid {
-        gap: 1.35rem;
+      nav.show {
+        opacity: 1;
+        pointer-events: auto;
+        transform: scale(1);
       }
     }
-    @media (max-width:600px) {
-      .section-title {
-        font-size: 1.45rem;
-      }
-      .crypto-card {
-        padding: 1.25rem 0.7rem 1rem 0.7rem;
-      }
-      .crypto-card__header {
-        gap: 0.62rem;
-      }
-      .crypto-card__logo img {
-        width: 40px; height: 40px;
-      }
+
+    /* Hamburger ↔ X Animation */
+    .menu-toggle.open span:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
     }
-    /* Focus outline for accessibility */
-    .crypto-card:focus-within,
-    .btn-learn:focus {
-      outline: 2.5px solid var(--color-accent);
-      outline-offset: 2px;
+    .menu-toggle.open span:nth-child(2) {
+      opacity: 0;
     }
-    /* Scrollbar styling for desktop */
-    ::-webkit-scrollbar {
-      width: 12px;
-      background: var(--color-bg-main);
+    .menu-toggle.open span:nth-child(3) {
+      transform: rotate(-45deg) translate(5px, -5px);
     }
-    ::-webkit-scrollbar-thumb {
-      background: #22242b;
-      border-radius: 6px;
+
+    /* Main Content Offset */
+    main {
+      padding: 6rem 2rem 2rem;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    /* Investment Section */
+    .investment-section {
+      text-align: center;
+      padding: 3rem 2rem;
+    }
+
+    .investment-section h2 {
+      font-size: 2rem;
+      color: var(--accent-purple);
+      text-shadow: 0 0 6px rgba(162, 89, 255, 0.8);
+      margin-bottom: 1rem;
+    }
+
+    .investment-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .investment-item {
+      background: rgba(255, 255, 255, 0.05);
+      padding: 1.5rem;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(162, 89, 255, 0.2);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .investment-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 4px 20px rgba(162, 89, 255, 0.4);
+    }
+
+    .investment-item img {
+      width: 100%;
+      border-radius: 8px;
+      margin-bottom: 1rem;
+    }
+
+    .investment-item h3 {
+      margin: 0.5rem 0;
+      color: var(--accent-green);
+    }
+
+    .investment-item p {
+      font-size: 0.95rem;
+      line-height: 1.4;
+      margin-bottom: 1rem;
+    }
+
+    .investment-item a {
+      color: var(--accent-purple);
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .investment-item a:hover {
+      color: var(--accent-green-strong);
+    }
+
+    /* Footer */
+    footer {
+      background: var(--dark-bg-2);
+      text-align: center;
+      padding: 1rem;
+      margin-top: 3rem;
+      font-size: 0.9rem;
     }
   </style>
 </head>
 <body>
-  <nav class="navbar" role="navigation" aria-label="Primary">
-    <div class="navbar__brand">
-      <img src="/logo/teznet.png" alt="Teznet Technology logo" />
-      Teznet Technology
+  <header>
+    <a href="index.html" class="site-title">Teznet Technology</a>
+    <div class="menu-toggle" id="menu-toggle">
+      <span></span>
+      <span></span>
+      <span></span>
     </div>
-    <div class="navbar__links">
-      <a href="/" class="active" tabindex="0">Home</a>
-      <a href="/features" tabindex="0">Features</a>
-      <a href="/about" tabindex="0">About</a>
-      <a href="/contact" tabindex="0">Contact</a>
-    </div>
-  </nav>
-  <div class="container">
-    <div class="section-header">
-      <div>
-        <h1 class="section-title">Explore Top Cryptocurrencies</h1>
-        <div class="section-desc">
-          Track live market data for the world's leading digital assets. All prices, market caps, and 24h changes update in real-time. Learn more about each coin with one click.
+    <nav id="nav-links">
+      <a href="https://github.com/TeznetOpenCore/">OpenCore</a>
+      <a href="investments.html">Strategic Investments</a>
+      <a href="team.html">Meet the Team</a>
+      <a href="index.html">Home</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="investment-section">
+      <h2>Strategic Investments</h2>
+      <div class="investment-grid">
+        <div class="investment-item">
+          <img src="images/crypto-portfolio.jpg" alt="Cryptocurrency Fund">
+          <h3>Cryptocurrency Fund</h3>
+          <p>A diversified portfolio of emerging digital assets, focused on blockchain innovations and high-growth tokens.</p>
+          <a href="#">Learn More →</a>
+        </div>
+        <div class="investment-item">
+          <img src="images/ai-startup.jpg" alt="AI Startups">
+          <h3>AI Startups</h3>
+          <p>Seed and Series A investments in AI-driven ventures, from computer vision to natural language processing solutions.</p>
+          <a href="#">Learn More →</a>
+        </div>
+        <div class="investment-item">
+          <img src="images/iot-security.jpg" alt="IoT Security">
+          <h3>IoT Security</h3>
+          <p>Backing next-generation hardware security platforms that secure connected devices across industries.</p>
+          <a href="#">Learn More →</a>
+        </div>
+        <div class="investment-item">
+          <img src="images/green-tech.jpg" alt="Green Technology">
+          <h3>Green Technology</h3>
+          <p>Investing in eco-friendly energy solutions and sustainable networks that minimize carbon footprints.</p>
+          <a href="#">Learn More →</a>
         </div>
       </div>
-      <!-- Option: add global market stats here -->
-    </div>
-    <section class="crypto-grid" aria-label="Cryptocurrency Grid">
-      <!-- Example: Bitcoin Card -->
-      <article class="crypto-card" tabindex="0">
-        <div class="crypto-card__header">
-          <span class="crypto-card__logo">
-            <img src="/crypto/BTC.png" alt="Bitcoin logo" loading="lazy"
-              onerror="this.onerror=null;this.src='https://placehold.net/64x64.png?text=BTC';" />
-          </span>
-          <span>
-            <span class="crypto-card__name">Bitcoin</span>
-            <span class="crypto-card__symbol">(BTC)</span>
-          </span>
-        </div>
-        <div class="crypto-card__stats">
-          <div class="crypto-card__stat">
-            <small class="crypto-card__stat-label">Price</small>
-            <span class="crypto-card__stat-value">$68,130.86</span>
-          </div>
-          <div class="crypto-card__stat">
-            <small class="crypto-card__stat-label">Market Cap</small>
-            <span class="crypto-card__stat-value">$1.35T</span>
-          </div>
-          <div class="crypto-card__stat">
-            <small class="crypto-card__stat-label">24h Change</small>
-            <span class="crypto-card__change crypto-card__change--up">
-              <svg width="12" height="12" style="vertical-align:middle;" aria-hidden="true"><path d="M6 2l4 7H2z" fill="#44D7B6"/></svg>
-              +2.73%
-            </span>
-          </div>
-          <div class="crypto-card__stat">
-            <small class="crypto-card__stat-label">Volume (24h)</small>
-            <span class="crypto-card__stat-value">$33B</span>
-          </div>
-        </div>
-        <div class="crypto-card__actions">
-          <a href="/about/BTC" class="btn-learn" aria-label="Learn more about Bitcoin">Learn More</a>
-        </div>
-      </article>
-      <!-- Example: Ethereum Card -->
-      <article class="crypto-card" tabindex="0">
-        <div class="crypto-card__header">
-          <span class="crypto-card__logo">
-            <img src="/crypto/ETH.png" alt="Ethereum logo" loading="lazy"
-              onerror="this.onerror=null;this.src='https://placehold.net/64x64.png?text=ETH';" />
-          </span>
-          <span>
-            <span class="crypto-card__name">Ethereum</span>
-            <span class="crypto-card__symbol">(ETH)</span>
-          </span>
-        </div>
-        <div class="crypto-card__stats">
-          <div class="crypto-card__stat">
-            <small class="crypto-card__stat-label">Price</small>
-            <span class="crypto-card__stat-value">$3,557.42</span>
-          </div>
-          <div class="crypto-card__stat">
-            <small class="crypto-card__stat-label">Market Cap</small>
-            <span class="crypto-card__stat-value">$427B</span>
-          </div>
-          <div class="crypto-card__stat">
-            <small class="crypto-card__stat-label">24h Change</small>
-            <span class="crypto-card__change crypto-card__change--down">
-              <svg width="12" height="12" style="vertical-align:middle;" aria-hidden="true"><path d="M6 10L2 3h8z" fill="#FF616D"/></svg>
-              -1.21%
-            </span>
-          </div>
-          <div class="crypto-card__stat">
-            <small class="crypto-card__stat-label">Volume (24h)</small>
-            <span class="crypto-card__stat-value">$19B</span>
-          </div>
-        </div>
-        <div class="crypto-card__actions">
-          <a href="/about/ETH" class="btn-learn" aria-label="Learn more about Ethereum">Learn More</a>
-        </div>
-      </article>
-      <!-- Example: Solana Card -->
-      <article class="crypto-card" tabindex="0">
-        <div class="crypto-card__header">
-          <span class="crypto-card__logo">
-            <img src="/crypto/SOL.png" alt="Solana logo" loading="lazy"
-              onerror="this.onerror=null;this.src='https://placehold.net/64x64.png?text=SOL';" />
-          </span>
-          <span>
-            <span class="crypto-card__name">Solana</span>
-            <span class="crypto-card__symbol">(SOL)</span>
-          </span>
-        </div>
-        <div class="crypto-card__stats">
-          <div class="crypto-card__stat">
-            <small class="crypto-card__stat-label">Price</small>
-            <span class="crypto-card__stat-value">$153.10</span>
-          </div>
-          <div class="crypto-card__stat">
-            <small class="crypto-card__stat-label">Market Cap</small>
-            <span class="crypto-card__stat-value">$65.5B</span>
-          </div>
-          <div class="crypto-card__stat">
-            <small class="crypto-card__stat-label">24h Change</small>
-            <span class="crypto-card__change crypto-card__change--up">
-              <svg width="12" height="12" style="vertical-align:middle;" aria-hidden="true"><path d="M6 2l4 7H2z" fill="#44D7B6"/></svg>
-              +0.19%
-            </span>
-          </div>
-          <div class="crypto-card__stat">
-            <small class="crypto-card__stat-label">Volume (24h)</small>
-            <span class="crypto-card__stat-value">$4.2B</span>
-          </div>
-        </div>
-        <div class="crypto-card__actions">
-          <a href="/about/SOL" class="btn-learn" aria-label="Learn more about Solana">Learn More</a>
-        </div>
-      </article>
-      <!-- More cards go here... add as needed with up/down sample data -->
     </section>
-  </div>
+  </main>
 
-  <!-- Accessibility: skip link for screen readers -->
-  <a href="#main" class="sr-only sr-only-focusable">Skip to main content</a>
+  <footer>
+    &copy; 2025 Teznet LLC. All Rights Reserved.
+  </footer>
+
+  <script>
+    const toggle = document.getElementById('menu-toggle');
+    const nav    = document.getElementById('nav-links');
+    toggle.addEventListener('click', () => {
+      toggle.classList.toggle('open');
+      nav.classList.toggle('show');
+    });
+  </script>
 </body>
 </html>
