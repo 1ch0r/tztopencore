@@ -1,0 +1,33 @@
+.glitch {
+  font-size: 30px;
+  text-align: center;
+  position: relative;
+  animation: shake 0.4s infinite;
+  animation-direction: alternate;
+}
+
+.glitch_fixed {
+  font-size: 30px;
+  text-align: center;
+  position: relative;
+  color: #eeeeee;
+  animation: color 0.4s infinite;
+  animation-direction: alternate;
+}
+
+.glitch_opacity {
+  font-size: 30px;
+  text-align: center;
+  position: relative;
+  color: #eeeeee;
+  position: absolute;
+  top: 0;
+  left: -2px;
+  animation: show 0.2s infinite;
+  animation-direction: alternate;
+}
+
+.glitch_opacity span {
+  color: #f802f8;
+}
+

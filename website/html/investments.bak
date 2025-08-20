@@ -29,16 +29,12 @@
     }
 
     body {
-  font-family: 'Roboto', sans-serif;
-  background: 
-    linear-gradient(rgba(11, 11, 11, 0.85), rgba(26, 26, 26, 0.85)),
-    url('rexxy.jpeg') no-repeat center center fixed;
-  background-size: cover;
-  color: var(--accent-pink);
-  animation: background-shift 60s var(--transition-fast) infinite alternate;
-  line-height: 1.5;
-}
-
+      font-family: 'Roboto',  sans-serif;
+      background: linear-gradient(50deg, var(--dark-bg-1), var(--dark-bg-2));
+      color: var(--accent-pink);
+      animation: background-shift 60s var(--transition-fast) infinite alternate;
+      line-height: 1.5;
+    }
 
     @keyframes background-shift {
       from { background: linear-gradient(50deg, var(--dark-bg-1), var(--dark-bg-2)); }

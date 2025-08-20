@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Teznet | Meet the Team</title>
+  <title>Teznet Technology | Meet the Team</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <style>
     :root {
@@ -11,124 +11,214 @@
       --accent-purple: #a259ff;
       --accent-green: #5cffb0;
       --accent-green-strong: #90ffcd;
+      --transition-fast: 0.3s ease;
+      --logo-height: 40px;
     }
-    body {
+
+    /* Reset & Base */
+    * {
       margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
       font-family: system-ui, sans-serif;
       background: linear-gradient(50deg, var(--dark-bg-1), var(--dark-bg-2));
       color: var(--accent-green);
-      animation: background-shift 60s ease-in-out infinite;
+      animation: background-shift 60s var(--transition-fast) infinite alternate;
+      line-height: 1.5;
     }
+
+    @keyframes background-shift {
+      from { background: linear-gradient(50deg, var(--dark-bg-1), var(--dark-bg-2)); }
+      to   { background: linear-gradient(50deg, var(--dark-bg-2), var(--dark-bg-1)); }
+    }
+
+    /* Header & Navigation */
     header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: var(--dark-bg-2);
+      border-bottom: 2px solid rgba(162, 89, 255, 0.3);
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
       padding: 1rem 2rem;
       display: flex;
-      justify-content: space-between;
       align-items: center;
-      position: relative;
-      border-bottom: 2px solid rgba(162, 89, 255, 0.3);
-      background: var(--dark-bg-2);
+      justify-content: space-between;
+      z-index: 1000;
     }
-    header h1 {
-      font-size: 1.5rem;
-      margin: 0;
+
+    header .site-logo {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
     }
+
+    header img.logo {
+      height: var(--logo-height);
+      width: auto;
+      margin-right: 0.75rem;
+    }
+
     .site-title {
       color: var(--accent-purple);
-      text-decoration: none;
+      font-size: 1.5rem;
       text-shadow: 0 0 6px rgba(162, 89, 255, 0.9);
+      transition: color var(--transition-fast);
     }
+
     .site-title:hover {
       color: var(--accent-green);
     }
+
+    nav {
+      display: flex;
+      gap: 1rem;
+    }
+
     nav a {
+      position: relative;
       color: var(--accent-green);
       text-decoration: none;
       font-weight: bold;
       padding: 0.25rem 0.5rem;
+      transition: color var(--transition-fast);
     }
+
+    nav a::after {
+      content: '';
+      position: absolute;
+      bottom: -3px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--accent-purple);
+      transition: width var(--transition-fast);
+    }
+
     nav a:hover {
       color: var(--accent-green-strong);
     }
+
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    /* Hamburger Button */
     .menu-toggle {
       display: none;
       flex-direction: column;
+      justify-content: space-between;
+      width: 28px;
+      height: 22px;
       cursor: pointer;
-      gap: 4px;
       z-index: 1100;
     }
+
     .menu-toggle span {
-      width: 25px;
+      display: block;
       height: 3px;
       background: var(--accent-purple);
       border-radius: 2px;
+      transition: transform var(--transition-fast), opacity var(--transition-fast);
     }
-    .nav-links {
-      display: flex;
-      gap: 0.75rem;
-    }
+
+    /* Mobile Nav */
     @media (max-width: 700px) {
-      .menu-toggle { display: flex; }
-      .nav-links {
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
+      .menu-toggle {
+        display: flex;
+      }
+      nav {
         position: fixed;
         top: 0;
         left: 0;
-        height: 100vh;
         width: 100vw;
+        height: 100vh;
         background: var(--dark-bg-1);
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 1.5rem;
+        font-size: 1.4rem;
         opacity: 0;
         pointer-events: none;
         transform: scale(1.05);
-        transition: opacity 0.4s ease, transform 0.4s ease;
-        gap: 1.5rem;
-        font-size: 1.4rem;
-        z-index: 1000;
+        transition: opacity var(--transition-fast), transform var(--transition-fast);
       }
-      .nav-links.show {
+      nav.show {
         opacity: 1;
         pointer-events: auto;
         transform: scale(1);
       }
     }
+
+    /* Hamburger ↔ X Animation */
+    .menu-toggle.open span:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+    .menu-toggle.open span:nth-child(2) {
+      opacity: 0;
+    }
+    .menu-toggle.open span:nth-child(3) {
+      transform: rotate(-45deg) translate(5px, -5px);
+    }
+
+    /* Main Content Offset */
+    main {
+      padding: 6rem 2rem 2rem;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    /* Team Section */
     .team-section {
       padding: 3rem 2rem;
       max-width: 1000px;
       margin: auto;
       text-align: center;
     }
+
     .team-section h2 {
       font-size: 2rem;
-      margin-bottom: 1rem;
-      text-shadow: 0 0 6px rgba(162, 89, 255, 0.8);
       color: var(--accent-purple);
+      text-shadow: 0 0 6px rgba(162, 89, 255, 0.8);
+      margin-bottom: 1rem;
     }
+
     .team-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
       gap: 2rem;
       margin-top: 2rem;
     }
+
     .team-member {
       background: rgba(255, 255, 255, 0.05);
       padding: 1rem;
       border-radius: 10px;
       box-shadow: 0 0 10px rgba(162, 89, 255, 0.2);
     }
+
     .team-member img {
       width: 100%;
       border-radius: 50%;
       margin-bottom: 1rem;
     }
+
     .team-member h3 {
       margin: 0.5rem 0;
       color: var(--accent-green);
     }
+
     .team-member p {
       font-size: 0.95rem;
       line-height: 1.4;
     }
+
+    /* Footer */
     footer {
       background: var(--dark-bg-2);
       text-align: center;
@@ -136,53 +226,54 @@
       margin-top: 3rem;
       font-size: 0.9rem;
     }
-    @keyframes background-shift {
-      0%   { background: linear-gradient(50deg, var(--dark-bg-1), var(--dark-bg-2)); }
-      50%  { background: linear-gradient(50deg, var(--dark-bg-2), var(--dark-bg-1)); }
-      100% { background: linear-gradient(50deg, var(--dark-bg-1), var(--dark-bg-2)); }
-    }
   </style>
 </head>
 <body>
-
   <header>
-    <h1><a href="index.html" class="site-title">Teznet LLC</a></h1>
+    <a href="index.html" class="site-logo">
+      <img src="nobcklogo.png" alt="Teznet Technology logo" class="logo" />
+      <span class="site-title">Teznet Technology</span>
+    </a>
     <div class="menu-toggle" id="menu-toggle">
-      <span></span><span></span><span></span>
+      <span></span>
+      <span></span>
+      <span></span>
     </div>
-    <nav class="nav-links" id="nav-links">
+    <nav id="nav-links">
       <a href="index.html">Home</a>
-      <a href="team.html">Meet the Team</a>
       <a href="investments.html">Strategic Investments</a>
-      <a href="#contact">Contact</a>
+      <a href="team.html">Meet the Team</a>
+      <a href="https://github.com/TeznetOpenCore/">OpenCore</a>
     </nav>
   </header>
 
-  <section class="team-section">
-    <h2>Meet the Team</h2>
-    <div class="team-grid">
-      <div class="team-member">
-        <img src="images/founder.jpg" alt="Founder">
-        <h3>Alex Johnson</h3>
-        <p>Founder & CEO — With over 20 years in RF engineering, Alex leads Teznet with a vision for innovation and a commitment to pushing technological boundaries.</p>
+  <main>
+    <section class="team-section">
+      <h2>Meet the Team</h2>
+      <div class="team-grid">
+        <div class="team-member">
+          <img src="images/founder.jpg" alt="Founder" />
+          <h3>Alex Johnson</h3>
+          <p>Founder & CEO — With over 20 years in RF engineering, Alex leads Teznet with a vision for innovation and a commitment to pushing technological boundaries.</p>
+        </div>
+        <div class="team-member">
+          <img src="images/cto.jpg" alt="CTO" />
+          <h3>Maria Lopez</h3>
+          <p>Chief Technology Officer — Maria specializes in embedded systems and cybersecurity, ensuring our solutions remain secure, scalable, and ahead of the curve.</p>
+        </div>
+        <div class="team-member">
+          <img src="images/lead-engineer.jpg" alt="Lead Engineer" />
+          <h3>David Kim</h3>
+          <p>Lead Engineer — David spearheads our hardware security projects, blending technical mastery with creative problem-solving.</p>
+        </div>
+        <div class="team-member">
+          <img src="images/project-manager.jpg" alt="Project Manager" />
+          <h3>Sara Patel</h3>
+          <p>Project Manager — Sara ensures that every project moves from concept to completion with efficiency, clarity, and quality.</p>
+        </div>
       </div>
-      <div class="team-member">
-        <img src="images/cto.jpg" alt="CTO">
-        <h3>Maria Lopez</h3>
-        <p>Chief Technology Officer — Maria specializes in embedded systems and cybersecurity, ensuring our solutions remain secure, scalable, and ahead of the curve.</p>
-      </div>
-      <div class="team-member">
-        <img src="images/lead-engineer.jpg" alt="Lead Engineer">
-        <h3>David Kim</h3>
-        <p>Lead Engineer — David spearheads our hardware security projects, blending technical mastery with creative problem-solving.</p>
-      </div>
-      <div class="team-member">
-        <img src="images/project-manager.jpg" alt="Project Manager">
-        <h3>Sara Patel</h3>
-        <p>Project Manager — Sara ensures that every project moves from concept to completion with efficiency, clarity, and quality.</p>
-      </div>
-    </div>
-  </section>
+    </section>
+  </main>
 
   <footer>
     &copy; 2025 Teznet LLC. All Rights Reserved.
@@ -190,11 +281,11 @@
 
   <script>
     const toggle = document.getElementById('menu-toggle');
-    const nav = document.getElementById('nav-links');
+    const nav    = document.getElementById('nav-links');
     toggle.addEventListener('click', () => {
+      toggle.classList.toggle('open');
       nav.classList.toggle('show');
     });
   </script>
-
 </body>
 </html>

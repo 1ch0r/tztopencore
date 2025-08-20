@@ -1,44 +1,42 @@
-<!DOCTYPE html>i
+<!DOCTYPE html>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
 
+<link href="https://fonts.googleapis.com/css2?family=Rubik+Mono+One&display=swap" rel="stylesheet">
 <html lang="en">
 <head>
-
   <meta charset="UTF-8" />
-  <title>Teznet Technology | Invention - Innovation - Inspiration</title>
+
+  <title>[T.z.T.] | Invention - Innovation - Inspiration</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <style>
     :root {
-      --accent-pink: #ff69b4;
       --dark-bg-1: #0b0b0b;
       --dark-bg-2: #1a1a1a;
       --accent-purple: #a259ff;
       --accent-green: #5cffb0;
       --accent-green-strong: #90ffcd;
       --transition-fast: 0.3s ease;
+      --logo-height: 40px;
     }
 
     /* Reset & Base */
     * {
-      margin: 0;
+     margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
 
     body {
-  font-family: 'Roboto', sans-serif;
-  background: 
-    linear-gradient(rgba(11, 11, 11, 0.85), rgba(26, 26, 26, 0.85)),
-    url('rexxy.jpeg') no-repeat center center fixed;
-  background-size: cover;
-  color: var(--accent-pink);
-  animation: background-shift 60s var(--transition-fast) infinite alternate;
-  line-height: 1.5;
-}
-
+      font-family: 'Roboto', sans-serif;
+      font-weight:bold;
+      background: linear-gradient(50deg, var(--dark-bg-1), var(--dark-bg-2));
+      color: var(--accent-green);
+      animation: background-shift 60s var(--transition-fast) infinite alternate;
+      line-height: 1.5;
+    }
 
     @keyframes background-shift {
       from { background: linear-gradient(50deg, var(--dark-bg-1), var(--dark-bg-2)); }
@@ -61,9 +59,23 @@
       z-index: 1000;
     }
 
+    
+    header .site-logo {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+    }
+
+    header img.logo {
+      height: var(--logo-height);
+      width: auto;
+      margin-right: 0.75rem;
+    }
+
+
     .site-title {
-      font-family: 'Rubik Mono One', sans-serif;
-      font-weight: bold;
+      font-family: 'Roboto', sans-serif;
+      font-weight: normal;
       color: var(--accent-purple);
       text-decoration: none;
       font-size: 1.5rem;
@@ -71,21 +83,19 @@
       transition: color var(--transition-fast);
     }
 
-
     .site-title:hover {
       color: var(--accent-green);
     }
 
     nav {
-      font-family: 'Rubik Mono One', sans-serif;
       display: flex;
       gap: 1rem;
     }
 
     nav a {
-      font-family: 'Rubik Mono One', sans-serif;
+      font-family: 'Roboto', sans-serif;
       position: relative;
-      color: var(--accent-purple);
+      color: var(--accent-green);
       text-decoration: none;
       font-weight: bold;
       padding: 0.25rem 0.5rem;
@@ -99,12 +109,12 @@
       left: 0;
       width: 0;
       height: 2px;
-      background: var(--accent-pink);
+      background: var(--accent-purple);
       transition: width var(--transition-fast);
     }
 
     nav a:hover {
-      color: var(--accent-pink-strong);
+      color: var(--accent-green-strong);
     }
 
     nav a:hover::after {
@@ -125,7 +135,7 @@
     .menu-toggle span {
       display: block;
       height: 3px;
-      background: var(--accent-pink);
+      background: var(--accent-purple);
       border-radius: 2px;
       transition: transform var(--transition-fast), opacity var(--transition-fast);
     }
@@ -136,8 +146,6 @@
         display: flex;
       }
       nav {
-	font-family: 'Rubik Mono One', sans-serif;     
-	font-weight: normal;      
         position: fixed;
         top: 0;
         left: 0;
@@ -148,7 +156,7 @@
         align-items: center;
         justify-content: center;
         gap: 1.5rem;
-        font-size: .7 rem;
+        font-size: 1.4rem;
         opacity: 0;
         pointer-events: none;
         transform: scale(1.05);
@@ -187,10 +195,11 @@
     }
 
     .hero h2 {
-      font-family: 'Rubik Mono One', sans-serif;
+      font-weight: 50; 
+      font-family: 'Roboto', sans-serif;
+  
       font-size: 2.5rem;
-      font-weight: normal;
-      color: var(--accent-pink);
+      color: var(--accent-purple);
       text-shadow:
         0 0 6px rgba(162, 89, 255, 0.9),
         0 0 18px rgba(92, 255, 176, 0.6);
@@ -198,8 +207,8 @@
     }
 
     .hero p {
-      font-weight: normal;
       font-family: 'Roboto', sans-serif;
+      font-weight: normal;
       font-size: clamp(1rem, 1.2vw + 0.5rem, 1.5rem);
       line-height: 1.6;
     }
@@ -209,10 +218,9 @@
     }
 
     .btn {
-      font-family: 'Roboto', sans-serif;
       background: transparent;
-      border: 2px solid var(--accent-pink);
-      color: var(--accent-pink);
+      border: 2px solid var(--accent-green);
+      color: var(--accent-green);
       padding: 0.75rem 1.5rem;
       margin: 0.5rem;
       cursor: pointer;
@@ -222,12 +230,13 @@
     }
 
     .btn:hover {
-      background: var(--accent-green);
+      background: var(--accent-purple);
       color: var(--dark-bg-1);
       transform: scale(1.05);
     }
 
-    .btn a {
+    .btn a{
+      font-family: 'Rubik Mono One', sans-serif;
       color: inherit;
       text-decoration: none;
       display: inline-block;
@@ -242,9 +251,12 @@
       margin: auto;
     }
 
+
     section h3 {
+      font-family:'Rubik Mono One', sans-serif;
+      font-weight: normal;
       font-size: 2rem;
-      color: var(--accent-pink);
+      color: var(--accent-purple);
       text-shadow: 0 0 6px rgba(162, 89, 255, 0.8);
       text-align: center;
       margin-bottom: 1rem;
@@ -269,58 +281,64 @@
 <body>
 
   <header>
-	  <a href="index.html" class="site-title"> Teznet Technology Company
-    <div class="menu-toggle" id="menu-toggle">
+    <a href="index.html" class="site-logo">
+      <img src="nobcklogo.png" alt="Teznet Technology" class="logo" />
+      <span class="site-title">Teznet Technology</span>
+      <div class="menu-toggle" id="menu-toggle">
+    </a>
       <span></span>
       <span></span>
       <span></span>
     </div>
     <nav id="nav-links">
       <a href="https://github.com/TeznetOpenCore/">OpenCore</a>
-      <a href="investments.html">TzT_$.1.G.</a>
-      <a href="space.html">Beyond
+      <a href="space.html">Space</a>
+      <a href="investments.html">Strategic Investments</a>
       <a href="team.html">Meet the Team</a>
-      <a href="#contact">Contact</a>
+      <a href="#contact">Concept Art> </a>
     </nav>
   </header>
 
   <main>
     <section class="hero">
-     <h2> $trategic Investment Group </h2>
+      <h2>Explore, Learn, Develop</h2>
       <p></p>
       <div class="buttons">
-    <!--  <button class="btn"> 
-  <a href="https://solscan.io/token/4VrrtxGWsoXwhfqi9ffXUyQS6FjhHmMuKgBjFx5KVpQh">
-    R0B0S0AREXX on SOLANA
-  </a> 
- </button> -->
+	      <!<button class="btn">
+		      <!  < a href="https://pump.fun/chat/g8ChkIaM49">
+		      <!  TAKE PART IN OUR COMMUNITY CHAT>
+		      <!     </a>
+        >>></button>
         <button class="btn">
-          <a href="https://a.co/d/h4UCEEk">0FF1C1AL R0B0SOARREXX MERCH</a>
-        </button>
+         <a href="https://www.youtube.com/@MrStealYourGit">YOUTUBE (TUTORIALS COMING SOON)</a>
+        </button> <<<
       </div>
     </section>
 
     <section id="solutions">
-      <h3>Stocks</h3>
+      <h3>Invention</h3>
       <p>
-        Tune to TezNationTV for
-        <strong>News Coverage-</strong><strong>ETFS-</strong>
-        <strong>Price Discovery</strong>
+        Founded in 2020, Teznet is on a journey to provide a range of tele-communication products being developed through our OpenCore Program.
+        <strong>Our unique perspective</strong> and <strong>broad range of expertise</strong>
+        has lead us to improve upon to critical infrastrutral systems such as vehicular rolling code security and IoT based communication devices.
+        With hands-on experience in embedded systems, x86 archictecture. Teznet Technology  aims to provide physical security as well as cyber.  
       </p>
     </section>
 
     <section id="innovation">
-      <h3>Commodities</h3>
+      <h3>Innovation</h3>
       <p>
-        We intend to hedge against unforseen events by holding strategic positions that diversify our portfolio to more than mere assets.
+        Not always, do you have to do something different. Sometimes you have to do
+        something better. A build that is a milli-second faster, a design thats more dynamic. Often we forget that small, consistent victories add up.
       </p>
     </section>
 
     <section id="contact">
-      <h3>Crypto</h3>
+      <h3>Inspiration</h3>
       <p>
-        Blockchain technology is a longtime interest of Teznet, brought to life. We recognize where there is risk, theres opportunity.
-        
+        <strong>We are strongly committed to open source development. All our code is free!       </strong>
+
+       
         </a>
       </p>
     </section>

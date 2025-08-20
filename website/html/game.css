@@ -1,0 +1,244 @@
+
+.div1{
+  left: 50px;
+  background-color: #ff0055;
+  display: block;
+  text-align: center;
+  border-radius: 10%;
+  font-size: 70px;
+  font-family: monospace;
+  margin: 20px;
+  height: 100px;
+  width: 100px;
+  position: relative;
+  
+  animation-name: shift;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in;
+}
+   .div1:hover{
+    
+     animation-name: shift1;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  }
+  .div1:active{
+    background-color: red;
+
+  }
+
+
+.div2{
+  display: block;
+  text-align: center;
+  border-radius: 10%;
+  font-size: 70px;
+  font-family: monospace;
+  height: 100px;
+  width: 100px;
+  position: relative;
+  background-color: #f700ff;
+  left: 160px;
+  top: -120px;
+  margin: 20px;
+   animation-name: shift;
+  animation-duration: 5s;
+  animation-iteration-count: infinite;
+  animation-delay: .6s;
+  animation-timing-function: cubic-bezier(0.25, 0.25, 0.75, 0.75);
+  
+}
+.div2:hover{
+  animation-name: animation2;
+  animation-duration: 5s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+.div3{
+  display: block;
+  text-align: center;
+  border-radius: 10%;
+  font-size: 70px;
+  font-family: monospace;
+  height: 100px;
+  width: 100px;
+  position: relative;
+  background-color: #00e1ff;
+  top: -135px;
+  left: 50px;
+  margin: 20px;
+  animation-name: shift;
+  animation-duration: 5s;
+  animation-iteration-count: infinite;
+  animation-delay: 1.8s;
+  animation-timing-function: cubic-bezier(0.25, 0.25, 0.75, 0.75);
+}
+
+.div4{
+  border-radius: 10%;
+  display: block;
+  height: 100px;
+  width: 100px;
+  margin: 20px;
+  position: relative;
+  background-color: #00ff91;
+  font-size: 70px;
+  left: 160px;
+  top: -255px;
+  font-family: monospace;
+  text-align: center;
+   animation-name: shift;
+  animation-duration: 5s;
+  animation-iteration-count: infinite;
+  animation-delay: 2.1s;
+  animation-timing-function: cubic-bezier(0.25, 0.25, 0.75, 0.75);
+}
+.div5{
+  border-radius: 10%;
+  display: block;
+  height: 100px;
+  width: 100px;
+  margin: 20px;
+  position: relative;
+  background-color: purple;
+  font-size: 70px;
+  left: 270px;
+  top: -480px;
+  font-family: monospace;
+  text-align: center;
+   animation-name: shift;
+  animation-duration: 5s;
+  animation-iteration-count: infinite;
+  animation-delay: .9s;
+  animation-timing-function: cubic-bezier(0.25, 0.25, 0.75, 0.75);
+}
+.div6{
+  border-radius: 10%;
+  display: block;
+  height: 100px;
+  width: 100px;
+  margin: 20px;
+  position: relative;
+  background-color: #15ff00;
+  font-size: 70px;
+  left: 270px;
+  top: -495px;
+  font-family: monospace;
+  text-align: center;
+   animation-name: shift;
+  animation-duration: 5s;
+  animation-iteration-count: infinite;
+  animation-delay: 2.5s;
+  animation-timing-function: cubic-bezier(0.25, 0.25, 0.75, 0.75);
+}
+.div7{
+   border-radius: 10%;
+  display: block;
+  height: 100px;
+  width: 100px;
+  margin: 20px;
+  position: relative;
+  background-color: #5900ff;
+   font-size: 70px;
+   left: 380px;
+  top: -720px;
+  font-family: monospace;
+  text-align: center;
+   animation-name: shift;
+  animation-duration: 5s;
+  animation-iteration-count: infinite;
+  animation-delay: 1.2s;
+  animation-timing-function: cubic-bezier(0.25, 0.25, 0.75, 0.75);
+}
+.div8{
+    border-radius: 10%;
+  display: block;
+  height: 100px;
+  width: 100px;
+  margin: 20px;
+  position: relative;
+  background-color: #ddff00;
+   font-size: 70px;
+   left: 380px;
+  top: -735px;
+  font-family: monospace;
+  text-align: center; 
+   animation-name: shift;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  animation-delay: 2.8s;
+  animation-timing-function: cubic-bezier(0.25, 0.25, 0.75, 0.75);
+}
+.div9{
+    border-radius: 10%;
+  display: block;
+  height: 100px;
+  width: 100px;
+  margin: 20px;
+  position: relative;
+  background-color: #0099ff;
+   font-size: 70px;
+   left: 490px;
+  top: -960px;
+  font-family: monospace;
+  text-align: center; 
+   animation-name: shift;
+  animation-duration: 5s;
+  animation-iteration-count: infinite;
+  animation-delay: 1.5s;
+  animation-timing-function: cubic-bezier(0.25, 0.25, 0.75, 0.75);
+}
+.div10{
+    border-radius: 10%;
+  display: block;
+  height: 100px;
+  width: 100px;
+  margin: 20px;
+  position: relative;
+  background-color: #ffae00;
+   font-size: 70px;
+   left: 490px;
+  top: -975px;
+  font-family: monospace;
+  text-align: center; 
+  animation-name: shift;
+  animation-duration: 5s;
+  animation-iteration-count: infinite;
+  animation-timing-function: cubic-bezier(0.25, 0.25, 0.75, 0.75);
+  
+}
+
+
+
+@keyframes shift1 {
+  25%{
+    opacity: .50;
+    
+     transform: rotate(180deg);
+    border-radius: 50%;
+    transform: scale(.5,.5);
+    
+  }
+  50%{
+
+ 
+}
+}
+  @keyframes animation2{
+    25%{
+     transform: matrix(.75, .75, 1.5, 1, .5, .5);
+     /*matrix((scaleX(),skewY(),skewX(),scaleY(),translateX(),translateY()) */
+      
+    }
+    30%{
+     
+    }
+  }
+  .div1:hover{
+    background-color: blue;
+  }
+  .div1:active{
+    background-color: red;
+  }
